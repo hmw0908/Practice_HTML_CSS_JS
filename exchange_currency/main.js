@@ -45,6 +45,7 @@ document.querySelectorAll("#from-currency-list a").forEach(menu=>menu.addEventLi
     
     //3. 선택된 currency값을 변수에 저장해준다.
     fromCurrency = this.textContent;
+    convert(); // 1. 드랍다운 리스트 값이 바뀔 때마다 환전 다시
 
 }));
 
@@ -55,5 +56,22 @@ document.querySelectorAll("#to-currency-list a").forEach(menu=>menu.addEventList
     
     //3. 선택된 currency값을 변수에 저장해준다.
     toCurrency = this.textContent;
-
+    convert(); // 1. 드랍다운 리스트 값이 바뀔 때마다 환전 다시
 }));
+
+
+
+// 1. 키를 입력하는 순간 환전
+// 2. 환전된 값이 보인다.
+ function convert(){
+     //1. 환전
+     //1-1. 얼마를 환전? & 가지고 있는 돈이 뭔지, 바꾸고자 하는 돈이 뭔지 --> 돈* 환율 = 환전금액
+     let amount = document.getElementById("from-input").value;  // value를 사용하면 input창에 있는 값을 가져올 수 있다.
+     let convertedAmount = amount * currencyRatio[fromCurrency][toCurrency]; //동적인 값을 위해서 사용
+
+     document.getElementById("to-input").value = convertedAmount;
+ }
+
+ //반대로 밑에서 숫자를 바꿔도 위에 박스에 환율이 적용 되도록
+ // 숫자를 한국어로 읽는법
+ 
