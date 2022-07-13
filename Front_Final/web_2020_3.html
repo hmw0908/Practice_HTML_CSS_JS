@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>2020_3번문제</title>
+	<script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+	<style>
+		table{border-collapse: collapse;}
+		td{border: 1px solid black; padding: 10px;}
+		.a{text-align: center;}
+	</style>
+</head>
+<body>
+	출생연도와 학번을 입력하고 결과 출력 버튼을 클릭하시오.
+	<form>
+	<table>
+		<tr><td class="a">출생연도</td><td colspan="4">
+			<select id="year">
+				<option value="2019" selected>2019</option>
+				<option value="2018">2018</option>
+				<option value="2017">2017</option>
+			</select></td></tr>
+		<tr><td class="a">학번</td><td colspan="4">
+			<input type="text" placeholder="201901234" id="texted">
+			<input type="button" value="결과 출력" id="but">
+		</td></tr>
+		<tr><td class="a">결과 출력</td><td colspan="4">출생연도는 <span id="years">2019</span>년,<br>학번은 <span id="gra">201901234</span>입니다.</td></tr>
+	</table>
+	</form>
+	<script>
+		$(document).ready(function(){
+			$("#but").click(function(){
+				var sel = $("#year option:selected").val();
+				$("#years").text(sel);
+				var text = $("#texted").val();
+				$("#gra").text(text);
+			});
+		});
+	</script>
+</body>
+</html>

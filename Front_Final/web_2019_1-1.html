@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>1-1번 문제</title>
+</head>
+<body onload="chan()">
+<form>
+	<input type="text" id="fir_n">
+	<select id="calcu" onchange="chan()">
+		<option value="0" selected>+</option>
+		<option value="1">-</option>
+		<option value="2">*</option>
+		<option value="3">/</option>
+	</select>
+	<input type="text" id="sec_n">
+	<span> = </span>
+	<input type="text" id="result">
+	<input type="button" value="연산" onclick="resulted()">
+</form>
+
+<script>
+	var n;
+	function chan(){
+		var cal = document.getElementById("calcu");
+		var resu = document.getElementById("result");
+		var index = cal.selectedIndex;
+		n = index;
+	}
+
+	function resulted(){
+		var n1 = document.getElementById("fir_n");
+		var n2 = document.getElementById("sec_n");
+		var resu = document.getElementById("result");
+		switch(n){
+			case 0:
+				resu.value = parseInt(n1.value)+parseInt(n2.value);
+				break;
+			case 1:
+				resu.value = parseInt(n1.value)-parseInt(n2.value);
+				break;
+			case 2:
+				resu.value = parseInt(n1.value)*parseInt(n2.value);
+				break;
+			default:
+				resu.value = parseInt(n1.value)/parseInt(n2.value);
+		}
+	}
+</script>
+</body>
+</html>

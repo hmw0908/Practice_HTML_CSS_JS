@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>2020_1번문제</title>
+	<style>
+		table { display: inline-block; }
+		td{width: 20px; height: 20px; text-align: center; border: 1px solid; padding: 0px; margin: 0px;}
+	</style>
+</head>
+
+<body>
+	무선 블루투스 마우스<br>
+	판매가: 10,000원
+	<hr>
+	<span>개수:</span>
+	<table>
+		<tr><td id="sub" onclick="sub_n()" onmouseover="over()" onmouseout="out()">-</td><td id="num">1</td><td id="sum" onclick="sum_n()" onmouseover="over()" onmouseout="out()">+</td></tr>
+	</table>
+	<p>합계: <span id="result">10000원</span></p>
+
+	<script>
+		function sub_n(){
+			var num = document.getElementById("num");
+			if(num.innerHTML <= 1)
+				return;
+			else
+				num.innerHTML = parseInt(num.innerHTML)-1;
+			var result = document.getElementById("result");
+			result.innerHTML = parseInt(num.innerHTML)*10000 + "원";
+		}
+
+		function sum_n(){
+			var num = document.getElementById("num");
+			num.innerHTML = parseInt(num.innerHTML)+1;
+			var result = document.getElementById("result");
+			result.innerHTML = parseInt(num.innerHTML)*10000 + "원";
+		}
+
+		function over(){
+			document.body.style.cursor = "pointer";
+		}
+
+		function out(){
+			document.body.style.cursor = "default";
+		}
+	</script>
+
+</body>
+</html>

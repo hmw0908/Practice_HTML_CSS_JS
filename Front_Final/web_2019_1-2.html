@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>2번문제</title>
+</head>
+
+<body>
+<h3>물품 선택 후 [계산] 버튼 클릭</h3>
+<hr>
+<form>
+	<input type="checkbox" name="z" value="1000" onclick="calc(this)">연필 1천원<br>
+	<input type="checkbox" name="z" value="2000" onclick="calc(this)">풀 2천원<br>
+	<input type="checkbox" name="z" value="3000" onclick="calc(this)">휴지 3천원<br>
+	<input type="checkbox" name="z" value="4000" onclick="calc(this)">컵 4천원<br>
+	금액<input type="text" id="result">원
+	<input type="button" value="전체 해제" id="out" onclick="all_Out()">
+	<input type="button" value="전체 선택" id="over" onclick="all_Over()">
+	<input type="button" value="계산" id="press" onclick="resulted()">
+</form>
+<script>
+	var sum = 0;
+	function calc(obj){
+		if(obj.checked)
+			sum += parseInt(obj.value);
+		else
+			sum -= parseInt(obj.value);
+	}
+
+	function resulted(){
+		var result = document.getElementById("result");
+		result.value = sum;
+	}
+
+	function all_Out(){
+		var chec = document.getElementsByName("z");
+		for(var i =0; i<chec.length;i++){
+			if(chec[i].checked)
+				chec[i].checked = false;
+		}
+		sum = 0;
+	}
+
+	function all_Over(){
+		var chec = document.getElementsByName("z");
+		for(var i =0; i<chec.length;i++){
+			if(chec[i].checked == false)
+				chec[i].checked = true;
+		}
+		sum = 10000;
+	}
+</script>
+</body>
+</html>

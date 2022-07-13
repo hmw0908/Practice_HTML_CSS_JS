@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>3번문제</title>
+	<script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+	<style>
+		table, td{border-top: 1px solid black; border-bottom: 1px solid black;}
+		td{padding: 10px; text-align: center;}
+	</style>
+</head>
+<body>
+	<h3>만족도 조사</h3>
+	<hr>
+	<p>다음 설문 문항에 답해 주세요.</p><br>
+	<table>
+		<tr><td>문항</td><td>매우 만족<br>(5)</td><td> 만족 <br>(4)</td><td> 보통 <br>(3)</td><td>불만<br>(2)</td><td>매우 불만<br>(1)</td><td>평점</td></tr>
+		<form id="myform">
+		<tr><td>셔틀버스</td><td><input type="radio" name="num" value="5" class="radiobutton"></td><td><input type="radio" name="num" value="4" class="radiobutton"></td><td><input type="radio" name="num" value="3" class="radiobutton"></td><td><input type="radio" name="num" value="2" class="radiobutton"></td><td><input type="radio" name="num" value="1" class="radiobutton"></td><td id="avr1"></td></tr>
+
+		<tr><td>학생식당</td><td><input type="radio" name="num2" value="5" class="radiobutton2"></td><td><input type="radio" name="num2" value="4" class="radiobutton2"></td><td><input type="radio" name="num2" value="3" class="radiobutton2"></td><td><input type="radio" name="num2" value="2" class="radiobutton2"></td><td><input type="radio" name="num2" value="1" class="radiobutton2"></td><td id="avr2"></td></tr>
+	</table><br><br>
+			<input type="button" value="제출" id="but">
+		</form>
+	<script>
+		$(document).ready(function(){
+			var num1;
+			var num2;
+			$(".radiobutton").change(function(){
+				var selVal_n = $("input[name='num']:checked").val();
+				$("#avr1").text(selVal_n);
+				num1 = parseInt(selVal_n);
+			});
+
+			$(".radiobutton2").change(function(){
+				var selVal_m = $("input[name='num2']:checked").val();
+				$("#avr2").text(selVal_m);
+				num2 = parseInt(selVal_m);
+			});
+			$("#but").click(function(){
+				var avr = (num1+num2)/2;
+				confirm("평균은 "+avr+"입니다.");
+			});
+
+		});
+	</script>
+</body>
+</html>

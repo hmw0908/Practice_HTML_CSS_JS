@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form>
+		<input type="text" id="fir_n">
+		<select id="sel">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+		</select>
+		<input type="text" id="sec_n">
+		<span> = </span>
+		<input type="text" id="res_num" value="">
+		<input type="button" value="연산" onclick="result()">
+	</form>
+	<script>
+		function result(){
+			var fir_n = document.getElementById("fir_n");
+			var sec_n = document.getElementById("sec_n");
+			var sel = document.getElementById("sel");
+			var index = sel.options[sel.selectedIndex].value;
+			var result = document.getElementById("res_num");
+
+			switch(index){
+				case "+":
+					result.value = parseInt(fir_n.value)+parseInt(sec_n.value);
+					break;
+				case "-":
+					result.value = parseInt(fir_n.value)-parseInt(sec_n.value);
+					break;
+				case "*":
+					result.value = parseInt(fir_n.value)*parseInt(sec_n.value);
+					break;
+				default:
+					result.value = parseInt(fir_n.value)/parseInt(sec_n.value);
+					break;
+			}
+		}
+	</script>
+</body>
+</html>

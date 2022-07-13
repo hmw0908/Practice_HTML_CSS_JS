@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>3번문제</title>
+	<style>
+		table, td{border-top: 1px solid black; border-bottom: 1px solid black; border-collapse: collapse;}
+		td{padding: 10px; text-align: center;}
+	</style>
+</head>
+
+<body>
+	<h3>만족도 조사</h3>
+	<hr>
+	<p>다음 설문 문항에 답해 주세요.</p><br>
+	<table>
+		<tr><td>문항</td><td>매우 만족<br>(5)</td><td> 만족 <br>(4)</td><td> 보통 <br>(3)</td><td>불만<br>(2)</td><td>매우 불만<br>(1)</td><td>평점</td></tr>
+		<form id="myform">
+		<tr><td>셔틀버스</td><td><input type="radio" name="num" value="5" onchange="change()"></td><td><input type="radio" name="num" value="4" onchange="change()"></td><td><input type="radio" name="num" value="3" onchange="change()"></td><td><input type="radio" name="num" value="2" onchange="change()"></td><td><input type="radio" name="num" value="1" onchange="change()"></td><td id="avr1"></td></tr>
+
+		<tr><td>학생식당</td><td><input type="radio" name="num2" value="5" onchange="change_2()"></td><td><input type="radio" name="num2" value="4" onchange="change_2()"></td><td><input type="radio" name="num2" value="3" onchange="change_2()"></td><td><input type="radio" name="num2" value="2" onchange="change_2()"></td><td><input type="radio" name="num2" value="1" onchange="change_2()"></td><td id="avr2"></td></tr>
+	</table><br><br>
+			<input type="button" value="제출" onclick="result()">
+		</form>
+	<script>
+		var sum = 0;
+		function change(){
+			var rab = document.getElementsByName("num");
+			var avr = document.getElementById("avr1");
+			for(var i=0;i<rab.length;i++){
+				if(rab[i].checked == true)
+					avr.innerHTML = rab[i].value;
+			}
+			sum += parseInt(avr.innerHTML);
+		}
+
+		function change_2(){
+			var rab = document.getElementsByName("num2");
+			var avr = document.getElementById("avr2");
+			for(var i=0;i<rab.length;i++){
+				if(rab[i].checked == true)
+					avr.innerHTML = rab[i].value;
+			}
+			sum += parseInt(avr.innerHTML);
+		}
+
+		function result(){
+			var n = confirm("평균은 " + sum/2 + "입니다");
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>2번문제</title>
+	<script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+</head>
+<body>
+	<form>
+		<input type="checkbox" name="items" value="1000">연필 1천원<br>
+		<input type="checkbox" name="items" value="2000">풀 2천원<br>
+		<input type="checkbox" name="items" value="3000">휴지 3천원<br>
+		<input type="checkbox" name="items" value="4000">컴 4천원<br>
+		금액 <input type="text" value="0" id="result">원<br>
+		<input type="button" id="out" value="전체 해제">
+		<input type="button" id="over" value="전체 선택">
+		<input type="button" value="계산" id="but_result">
+	</form>
+
+	<script>
+		$(document).ready(function(){
+			
+			$("#but_result").click(function(){
+				var sum = 0;
+				$("input:checkbox[name='items']").each(function(){
+					if(this.checked)
+						sum += parseInt(this.value);
+				});
+				$("#result").val(sum);
+			});
+
+			$("#out").click(function(){
+				$("input:checkbox[name='items']").each(function(){
+					if(this.checked==true){
+						this.checked = false;
+					}
+				});
+			});
+
+			$("#over").click(function(){
+				$("input:checkbox[name='items']").each(function(){
+					if(this.checked==false){
+						this.checked = true;
+					}
+				});
+			});
+
+		});
+	</script>
+</body>
+</html>

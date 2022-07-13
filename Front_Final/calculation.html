@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>html을 이용한 계산기</title>
+	<style>
+		td{padding: 10px;}
+	</style>
+</head>
+<body>
+	<h3>계산기</h3>
+	<hr>
+
+	<table border="1">
+		<tr><th colspan="4">계산기</th></tr>
+		<tr><td id="one" onclick="save_result(this)">1</td><td id="two" onclick="save_result(this)">2</td><td id="three" onclick="save_result(this)">3</td><td id="sksnrl" onclick="save_result(this)">/</td></tr>
+		<tr><td id="four" onclick="save_result(this)">4</td><td id="five" onclick="save_result(this)">5</td><td id="six" onclick="save_result(this)">6</td><td id="rhqgkrl" onclick="save_result(this)">*</td></tr>
+		<tr><td id="seven" onclick="save_result(this)">7</td><td id="eight" onclick="save_result(this)">8</td><td id="nine" onclick="save_result(this)">9</td><td id="sub" onclick="save_result(this)">-</td></tr>
+		<tr><td id="zero" onclick="save_result(this)">0</td><td id="wja" onclick="save_result(this)">.</td><td id="equals" onclick="resulted()">=</td><td id="sum" onclick="save_result(this)">+</td></tr>
+	</table>
+
+	<form>
+		<input type="text" id="ing" size="15px"> <br>
+		<input type="text" id="result" size="15px">
+	</form>
+	<button id="reset" onclick="reset()">reset</button>
+
+	<script>
+		var ings = document.getElementById("ing");
+		var result = document.getElementById("result");
+
+		function save_result(obj){
+			ings.value += obj.innerHTML;
+		}
+
+		function resulted(){
+			result.value = eval(ings.value);
+		}
+
+		function reset(){
+			result.value = "";
+			ings.value = "";
+		}
+	</script>
+
+</body>
+</html>
